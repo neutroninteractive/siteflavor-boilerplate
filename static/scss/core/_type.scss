@@ -1,0 +1,62 @@
+
+/* ------------------------------------
+    Typography
+--------------------------------------- */
+
+h1, h2, h3, .typeface--serif {
+    font-family: $font-family--headings;
+}
+
+h4, h6, h6, .typeface--sans {
+    font-family: $helvetica;
+}
+
+
+/* ------------------------------------
+    Type Options
+--------------------------------------- */
+
+a.link--dark {
+    color: $text--link-dark;
+
+    &:hover {
+        color: $text--link-dark--hover;
+    }
+}
+
+span {
+    @include line-height(.5);
+    margin: 0;
+}
+
+.heading--primary, .heading--secondary, .heading--success, .heading--basic {
+    font-family: $helvetica;
+    font-weight: 400;
+}
+
+.text--body-default--subtle {
+    @include colorLighten($text--body-default);
+}
+
+.text--body-white--subtle {
+    @include colorDarken($text--body-white);
+}
+
+.line-length--md {
+    max-width: 900px;
+}
+
+
+/* ------------------------------------
+    Help Blocks
+--------------------------------------- */
+
+.help-block--primary {
+    color: $brand-primary;
+    padding: 1rem 1rem 1.25rem;
+    background: $well-bg;
+    @include padding-top(.5);
+    @include padding-bottom(.625);
+    @include padding-horizontal(.5);
+    @include border-radius($border-radius-base);
+}

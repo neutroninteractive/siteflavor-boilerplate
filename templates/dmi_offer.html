@@ -1,0 +1,89 @@
+{% extends "offer.html" %}
+{% load static %}
+{% load compress %}
+
+{% block page_title %}{{ request.session.dmi_search_results.0.0.brand_name }}{% endblock %}
+
+{% block headline %}
+    <section class="offer--logo-feature gradient-radial--brand-primary frame--small">
+        <img alt="{{ brand.brand_name }}" class="brand--logo img-responsive" src="{{ brand.campus_logo }}">
+    </section>
+{% endblock %}
+
+{% block additional_scripts_end %}
+    {% compress js %}
+        <script id="LeadiDscript" type="text/javascript" src="{% static "js/lead_id_web.js" %}"></script>
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <div class="frame offer--page">
+        {% if messages %}
+            <div class="frame--inner">
+                {% for message in messages %}
+                    <div class="alert alert-dismissable alert-danger {{ message.tags }}">
+                        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="grid offer--grid frame--inner">
+            <div class="grid--item">
+                <div class="form--container label--tab-container relative">
+                    <span class="label label--tab label--success">Fill out this quick form for more info!</span>
+                    <h6 class="offer--form-header heading--primary text-bold text-center">Request information about degree or diploma programs from this school.</h6>
+                    <form id="offer-form" role="form" class="offer--form form" action="" method="post">
+                        {% csrf_token %}
+                        <fieldset>
+                            <ol class="list-unstyled">
+                                {% for field in form %}
+                                    <li>
+                                        {% if not field.help_text == 'Consent' %}
+                                            {% include 'includes/_dmi_field.html' with field=field %}
+                                        {% else %}
+                                            <div class="form-group row">
+                                                <div class="form-group offer-ewc-disclosure small col-md-11">
+                                                    <input type="checkbox" name="{{ field.name }}" id="{{ field.id_for_label }}">
+                                                    <label class="control-label" for="{{ field.id_for_label }}">
+                                                        {{ consent.0.main_statement }}<br/>
+                                                        {{ consent.0.sub_statement }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                                <li>
+                                    <input class="form-control" id="leadid_token" name="universal_lead_id" placeholder="Universal leadid" type="hidden">
+                                </li>
+                            </ol>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-lg btn-block btn--submit" id="offer-form-submit" type="submit">Submit Form</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="grid--item">
+                <div id="offer-content" class="offer--content">
+                    <h3>We put your future first.</h3>
+                    <p>Your career starts with your education, and we can help you make it happen! At CollegeOverview, we're committed to helping you find suitable colleges for your needs, regardless of your interests. We'll connect you with a program in your area.</p>
+                    <p>CollegeOverview lets you search and view:</p>
+                    <ul>
+                        <li>schools conveniently located to you</li>
+                        <li>specific programs to match your ambitions</li>
+                        <li>career fields that fit your interests</li>
+                        <li>articles with solutions to real life questions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frame--xsmall bg--gray">
+        <div class="max-width--site center-block clearfix">
+            <img src="{% static 'img/comodo_secure_seal_113x59_transp.png' %}" alt="secure badge" class="pull-right no-margin"/>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+    {# includes links to css and js for site #}
+    <head>
+        <title>{% block page_title %}MedicalCareersDirect{% endblock %}</title>
+        {% block meta_description %}
+            <meta name="description" content="webpage description">
+        {% endblock %}
+        {% block head %}
+            {% include "includes/head.html" %}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNVBK9G"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        {% block header %}
+            {% include "includes/header.html" %}
+        {% endblock %}
+
+        {# Mostly used for the search bar #}
+        {% block headline %}{% endblock %}
+
+        {% block prepop %}
+        {% endblock %}
+
+        {# main content area for the site. will contain search results, school offer content/form, static page content (about/privacy/tos), etc. #}
+        {% block content %}
+        {% endblock %}
+
+        {% block footer %}
+            {% include "includes/footer.html" %}
+        {% endblock %}
+
+        {% block additional_scripts_end %}{% endblock %}
+    </body>
+</html>

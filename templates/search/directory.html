@@ -1,0 +1,43 @@
+{% extends 'common/search/directory.html' %}
+
+{% block headline %}
+    <section class="frame--small top-padding-xl bottom-padding-sm directory--hero flex--column justify-content--end align-items--center">
+        <div class="frame--inner width--full">
+            <h1 class="no-margin">Whatever your career goals,<br>we’re here to find the right fit <span class="text--non-breaking">for you.</span></h1>
+        </div>
+    </section>
+    <section class="top-padding-xs bottom-padding-xs directory--hero-sub hrz-padding-lg border--top-sm border--light">
+      <div class="max-width--site center-block">
+          {% include "common/search/_school_name_dir_search.html" %}
+      </div>
+  </section>
+    <ul class="list-unstyled grid grid-col-3 vrt-padding-md hrz-padding-lg bottom-buffer-none border--bottom-sm border--top-sm border--light">
+        <li class="grid--item flex--row hrz-padding-md">
+            <span class="square--sm border-radius--round border--solid border--2px border--gray flex align-items--center justify-content--center">
+                <i class="fa fa-search directory__hero-panel--icon"></i>
+            </span>
+            <span class="left-buffer-md">
+                <span class="p block directory__hero-panel--heading">Search Jobs</span>
+                <span class="small directory__hero-panel--copy">Search below to find the jobs that offer the <span class="text--non-breaking">programs you need.</span></span>
+            </span>
+        </li>
+        <li class="grid--item flex--row hrz-padding-md">
+            <span class="square--sm border-radius--round border--solid border--2px border--gray flex align-items--center justify-content--center">
+                <i class="fa fa-info directory__hero-panel--icon"></i>
+            </span>
+            <span class="left-buffer-md">
+                <span class="p block directory__hero-panel--heading">Get Information</span>
+                <span class="small directory__hero-panel--copy">Click on any job to get info, we’ll also suggest <span class="text--non-breaking">related jobs.</span></span>
+            </span>
+        </li>
+        <li class="grid--item flex--row hrz-padding-md">
+            <span class="square--sm border-radius--round border--solid border--2px border--gray flex align-items--center justify-content--center">
+                <i class="fa fa-briefcase directory__hero-panel--icon"></i>
+            </span>
+            <span class="left-buffer-md">
+                <span class="p block directory__hero-panel--heading">Get Hired</span>
+                <span class="small directory__hero-panel--copy">Increase your odds, apply to as <span class="text--non-breaking">many jobs as possible.</span></span>
+            </span>
+        </li>
+    </ul>
+{% endblock %}

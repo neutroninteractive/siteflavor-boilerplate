@@ -1,0 +1,152 @@
+/* ------------------------------------
+    Base
+--------------------------------------- */
+
+* {
+    @include line-height(1);
+    @include margin-top(0);
+    @include margin-bottom(1);
+}
+
+html {
+    font-size: 90%;
+    font-family: $helvetica;
+    font-style: normal;
+    font-weight: 400;
+
+    @media screen and (min-width: $screen-sm) {
+        font-size: 100%;
+    }
+
+    @media screen and (min-width: $screen-md) {
+        font-size: 115%;
+    }
+
+    @media screen and (min-width: $screen-lg) {
+        font-size: 125%;
+    }
+}
+
+html, body, div, section, main, header, footer, form {
+    @include margin-bottom(0);
+}
+
+body {
+    background-color: $bg--white-default;
+    color: $text--body-default;
+}
+
+
+
+/* ------------------------------------
+    Images
+--------------------------------------- */
+
+img[alt] {
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+}
+
+.js--lozad:not([src]) {
+    font-size: 0;
+}
+
+img {
+    text-align: center;
+}
+
+
+/* ------------------------------------
+    Logo
+--------------------------------------- */
+
+.logo {
+    display: block;
+    width: 18rem;
+    height: 1.5rem;
+}
+
+.logo--gradient {
+    background: url($logo--flat) no-repeat;
+    background-size: contain;
+}
+
+.logo--flat {
+    background: url($logo--flat) no-repeat;
+    background-size: contain;
+}
+
+.logo--white {
+    background: url($logo--white) no-repeat;
+    background-size: contain;
+}
+
+.header--logo {
+    background: url($logo--flat) no-repeat;
+    background-size: contain;
+    margin-left: -5px;
+    background-position-y: center;
+
+    @media screen and (max-width: $screen-xs) {
+        width: 10rem;
+    }
+}
+
+
+/* ------------------------------------
+    Footer
+--------------------------------------- */
+
+.footer {
+    background: $blue--dark;
+    text-align: left;
+    @include padding-top(0);
+    @include padding-bottom(0);
+    color: $text--body-white;
+
+    p {
+        margin-bottom: .3125rem;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+        text-align: right;
+        @include padding-top(0);
+        @include padding-bottom(0);
+    }
+}
+
+.footer--top {
+    background: $brand-primary;
+}
+
+.footer--inner {
+    @include flex(column);
+    @include margin-center();
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: $site-max-width;
+    box-sizing: content-box;
+
+    .footer--first-item {
+        @include margin-bottom(1);
+    }
+
+    @media screen and (min-width: $screen-sm) {
+        flex-direction: row;
+        align-items: center;
+
+        .footer--first-item {
+            @include margin-bottom(0);
+        }
+    }
+}
+
+
+/* ------------------------------------
+    AJAX Loader
+--------------------------------------- */
+
+.ajax-loader {
+    line-height: inherit;
+}

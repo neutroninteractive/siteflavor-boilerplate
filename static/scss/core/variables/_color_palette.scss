@@ -1,0 +1,19 @@
+/* ------------------------------------
+    Color Pallet
+--------------------------------------- */
+
+// Colors
+$blue:                       #3B8BA9;
+$green:                      #3dd270;
+$orange:                     #E38629;
+$red:                        #d9534f;
+$blue--light:                lighten($blue, 10%);
+$blue--dark:                 darken($blue, 10%);
+$tan:                        #CCB89E;
+
+// Branding
+$brand-primary:              $blue;
+$brand-secondary:            $tan;
+$brand-warning:              $orange;
+$brand-success:              $green;
+$brand-danger:               $red;

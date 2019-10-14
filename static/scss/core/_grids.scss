@@ -1,0 +1,67 @@
+
+/* ------------------------------------
+    Grids
+--------------------------------------- */
+
+// Default Grid, For Situations involving a Heading, Copy and CTA
+.grid-default {
+    @include grid-column-gap(1);
+    @include grid-row-gap(1);
+    @include margin-center();
+    min-height: 30.625rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "headline"
+        "cta"
+        "copy";
+
+    .section--headline {
+        grid-area: headline;
+        align-self: flex-end;
+    }
+
+    .section--copy {
+        grid-area: copy;
+        align-self: flex-start;
+    }
+
+    .section--cta {
+        grid-area: cta;
+        align-self: center;
+    }
+
+    @media screen and (min-width: $screen-xs) {
+        // grid-template-area rows should follow this pattern ". headline ."
+        grid-template-columns: 1fr 25rem 1fr;
+        grid-template-areas:
+            ". headline ."
+            ". cta ."
+            ". copy .";
+    }
+
+    @media screen and (min-width: $screen-sm) {
+        @include grid-column-gap(2);
+
+        .section--copy {
+            max-width: 37rem;
+        }
+
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "headline cta"
+            "copy cta";
+    }
+
+    @media screen and (min-width: $screen-md) {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "headline cta" "copy cta";
+    }
+}
+
+.grid--1-2 {
+    @include grid-column-gap(.25);
+    grid-template-columns: 1fr 2fr;
+}

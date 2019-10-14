@@ -1,0 +1,21 @@
+{% extends 'common/search/base_brand_handler.html' %}
+
+{% block brand_card_class %}
+    {% if not brand.0.is_online and brand.0.campus_address1 %}js--map-brand{% endif %}
+{% endblock %}
+
+{% block brand_card_top %}
+    {% if not brand.0.is_online and brand.0.campus_address1 %}
+        <div class="js--map-info-window hidden">
+            <div class="info-window-content flex flex--column">
+                {% if brand.0.offer_type == 'linkout' %}
+                    <img alt="{{ brand.0.brand_name }}" src="{{ brand.0.campus_logo }}">
+                {% else %}
+                    <img alt="{{ brand.0.brand_name }}" src="{{ brand.0.campus_logo_large }}">
+                {% endif %}
+                <a class="js--map-brand-open btn btn-success btn-block" data-brand-id="{{ brand.0.brand_id }}">{% for offer in brand %}{% if forloop.last %}{{ forloop.counter }} Program{% if forloop.counter > 1 %}s{% endif %}{% endif %}{% endfor %}</a>
+            </div>
+        </div>
+        <input class="js--map-address hidden" value="{{ brand.0.campus_address1 }} {{ brand.0.campus_city }} {{ brand.0.campus_subnational }}"/>
+    {% endif %}
+{% endblock %}

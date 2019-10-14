@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% load compress %}
+
+{% block page_title %}{{ offer_content.brand.brand_name }}{% endblock %}
+
+{% block headline %}
+    <section class="offer--logo-feature gradient-radial--brand-primary frame--small">
+        <img alt="{{ offer_content.brand.brand_name }}" class="brand--logo img-responsive" src="
+        {% if offer_content.campus.banners %}
+            {{ offer_content.campus.banners.original.0.url }}
+        {% else %}
+            {{ offer_content.brand.banners.original.0.url }}
+        {% endif %}
+        ">
+    </section>
+{% endblock %}
+
+{% block additional_scripts_end %}
+    {% compress js %}
+        <script src="{% static "js/common/proton/proton_offer.js" %}"></script>
+    {% endcompress %}
+
+    {% if offer_content.trusted_form %}
+        <script type="text/javascript">
+            (function() {
+                var field = 'xxTrustedFormCertUrl';
+                var provideReferrer = false;
+                var invertFieldSensitivity = false;
+                var tf = document.createElement('script');
+                tf.type = 'text/javascript'; tf.async = true;
+                tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+                '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random() + '&invert_field_sensitivity=' + invertFieldSensitivity;
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+            )();
+        </script>
+        <noscript>
+            <img src="http://api.trustedform.com/ns.gif" />
+        </noscript>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="frame offer--page">
+        <div class="js--social-login-offer-page well frame--inner center-margin flex flex-direction--column-row--sm align-items--center justify-content--center bottom-buffer-md">
+            <p class="text-center text--weight-700 top-buffer-xs bottom-buffer-xs right-buffer-md left-buffer-md">Save time completing this form using your social account </p>
+            <a class="btn btn-sm btn-facebook top-buffer-xs bottom-buffer-xs right-buffer-sm" href="javascript:void(0);" onclick="fbLogin()" id="fbLink"><i class="fab fa-facebook"></i> Login with Facebook</a>
+            <a class="btn btn-sm btn-google top-buffer-xs bottom-buffer-xs" onclick="googleLogin();"><i class="fab fa-google"></i> Login with Google</a>
+        </div>
+        {% if messages %}
+            <div class="frame--inner">
+                {% for message in messages %}
+                    <div class="alert alert-dismissable alert-danger {{ message.tags }}">
+                        <button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="grid offer--grid frame--inner">
+            <div class="grid--item">
+                {% include "includes/offer_form.html" %}
+            </div>
+            <div class="grid--item">
+                {% include "includes/offer_content.html" %}
+            </div>
+        </div>
+    </div>
+    <div class="frame--xsmall bg--gray">
+        <div class="max-width--site center-block clearfix">
+            <img src="{% static 'img/comodo_secure_seal_113x59_transp.png' %}" alt="secure badge" class="pull-right no-margin"/>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="modal modal--split" id="quinstreet-sms">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <a type="button" data-dismiss="modal" aria-label="Close" class="btn--close"></a>
+            <div class="modal-body modal--split-body flex align-items--center">
+                <div class="js--offer">
+                    {% include "includes/_sms_offer_form.html" with offer_form=quinstreet_sms_offer.offer_form offer_content=quinstreet_sms_offer.offer_content offer_meta=quinstreet_sms_offer.offer_meta %}
+                </div>
+                <div class="js--confirmation hide--soft bottom-buffer-sm center-block">
+                    <div class="flex align-items--center justify-content--center bottom-buffer-sm center-block">
+                        <i class="fa fa-check text-success fa-5x right-buffer-lg left-buffer-md"></i>
+                        <div>
+                            <h5 class="no-margin">You're signed up!</h5>
+                            <p class="small no-margin">The latest education offers will be sent directly to your phone.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg" type="button" data-dismiss="modal" aria-label="Close"><i class="fa fa-search"></i> Continue Searching</button>
+                </div>
+            </div>
+            <div class="modal--split-image sms-offer-hero hidden-sm"></div>
+        </div>
+    </div>
+</div>
