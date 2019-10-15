@@ -7,7 +7,7 @@ Creating a New Siteflavor
 In your positron project, add a directory to the siteflavor directory named after your domain.
 For this example chocolatechip will be out directory name.
 
-Copy everything _except the gitignore file_ into your new directory. 
+Copy everything from the boilerplate _except the gitignore file_ into your new directory. 
 
 #### Rename Files and Directories
 * Rename the in /templates/ rename the boilerplate directory to the chocolatechip
