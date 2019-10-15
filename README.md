@@ -5,7 +5,7 @@ Creating a New Siteflavor
 
 #### Create Directory
 In your positron project, add a directory to the siteflavor directory named after your domain.
-In our case chocolatechip will be out directory name.
+For this example chocolatechip will be out directory name.
 The directory should contain everything found in the boilerplate siteflavor repository.
 
 #### Rename Files and Directories
